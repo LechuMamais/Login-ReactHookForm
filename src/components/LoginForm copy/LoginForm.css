@@ -1,0 +1,152 @@
+#login-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4c;
+    border-radius: 1rem;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 10px 10px 16px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 16px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 16px -13px rgba(0, 0, 0, 0.75);
+}
+
+#login-container h2 {
+    margin: 0;
+    font-weight: 500;
+}
+
+#login-container form {
+    padding: var(--extra-extra-large) 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--extra-large);
+}
+
+.form-section-container {
+    width: 100%;
+}
+
+.form-section-container label {
+    margin-left: var(--small);
+}
+
+.form-section-container input {
+    border: 2px solid var(--gris-oscuro);
+    outline: none;
+    margin-top: var(--small);
+    width: 100%;
+    padding: var(--small);
+    border-radius: 6px;
+    transition: border 0.15s ease;
+}
+
+.form-section-container input:focus {
+    border: 2px solid var(--gris-negro);
+}
+
+
+/* Error Message */
+.error-message {
+    margin: var(--small) 0;
+    font-size: 14px;
+    color: var(--gris-medio);
+}
+
+
+/* Show Password Toggle */
+.password-toggle-container{
+    width: 24px;
+    height: 24px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+/* Password security level */
+#password-input {
+    transition: color 0.3s ease;
+}
+.low-security {
+    color: var(--low-security-color);
+}
+.medium-security {
+    color: var(--medium-security-color);
+}
+.high-security {
+    color: var(--high-security-color);
+}
+.very-high-security {
+    color: var(--very-high-security-color);
+}
+
+
+/* Password Strenght Bar */
+.password-strength-bar {
+    width: 100%;
+    height: var(--small);
+    border-radius: 5px;
+    background-color: var(--gris-claro);
+    margin-bottom: var(--small);
+}
+
+.password-strength-bar-fill {
+    margin-top: var(--medium);
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+#password-strength-text {
+    font-size: 13px;
+}
+
+.low-security-bar{
+    width: 25%;
+    background-color: var(--low-security-color);
+}
+.medium-security-bar{
+    width: 50%;
+    background-color: var(--medium-security-color);
+}
+.high-security-bar{
+    width: 75%;
+    background-color: var(--high-security-color);
+}
+.very-high-security-bar{
+    width: 100%;
+    background-color: var(--very-high-security-color);
+}
+
+/* -------------------------- Button -------------------------- */
+
+
+button {
+    min-width: 120px;
+    padding: var(--medium) var(--extra-large);
+    background-color: var(--gris-oscuro);
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--gris-negro);
+}
+
+button:disabled {
+    background-color: var(--gris-claro);
+    cursor: not-allowed;
+    color: var(--gris-medio-oscuro);
+}
