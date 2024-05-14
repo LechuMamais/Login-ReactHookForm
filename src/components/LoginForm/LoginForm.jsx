@@ -2,6 +2,8 @@ import "./LoginForm.css";
 import { useForm } from "react-hook-form";
 import React from "react";
 import { useState } from "react";
+import { handlePasswordChange } from "../../functions/handlePasswordChange";
+import { checkPasswordStrength } from "../../functions/checkPasswordStrength";
 
 const LoginForm = () => {
   const { handleSubmit, register, formState } = useForm({
@@ -17,23 +19,6 @@ const LoginForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const checkPasswordStrength = (password) => {
-    let passwordSecurityLevel = 0;
-    if (password.length >= 8) {
-      passwordSecurityLevel++;
-    }
-    if (/[A-Z]/.test(password) && /[a-z]/.test(password)) {
-      passwordSecurityLevel++;
-    }
-    if (/\d/.test(password) && /[a-zA-Z]/.test(password)) {
-      passwordSecurityLevel++;
-    }
-    if (/[@$!%*?&]/.test(password)) {
-      passwordSecurityLevel++;
-    }
-    return passwordSecurityLevel;
-  };
-
   const submit = (formData) => {
     if (validatePassword(formData.password)) {
       console.log(formData);
@@ -41,57 +26,7 @@ const LoginForm = () => {
   };
 
   // En la siguiente funcion añado estilos y clases a elementos del DOM utilizando JS.
-  // He decidido hacerlo de así para mayor rendimiento, que re-renderice el componente completo
-  const handlePasswordChange = (e) => {
-    const password = e.target.value;
-    const level = checkPasswordStrength(password);
-    const passwordField = document.getElementById("password-input");
-    const passwordStrengthBar = document.getElementById(
-      "password-strength-bar-fill"
-    );
-    const passwordStrengthText = document.getElementById(
-      "password-strength-text"
-    );
-
-    if (passwordField && passwordStrengthBar && passwordStrengthText) {
-      passwordField.classList.remove(
-        "low-security",
-        "medium-security",
-        "high-security",
-        "very-high-security"
-      );
-      passwordStrengthBar.classList.remove(
-        "low-security-bar",
-        "medium-security-bar",
-        "high-security-bar",
-        "very-high-security-bar"
-      );
-      switch (level) {
-        case 0:
-          passwordField.classList.add("low-security");
-          passwordStrengthBar.classList.add("low-security-bar");
-          passwordStrengthText.textContent = "Nivel de seguridad: Bajo";
-          break;
-        case 1:
-          passwordField.classList.add("medium-security");
-          passwordStrengthBar.classList.add("medium-security-bar");
-          passwordStrengthText.textContent = "Nivel de seguridad: Medio";
-          break;
-        case 2:
-          passwordField.classList.add("high-security");
-          passwordStrengthBar.classList.add("high-security-bar");
-          passwordStrengthText.textContent = "Nivel de seguridad: Alto";
-          break;
-        case 3:
-          passwordField.classList.add("very-high-security");
-          passwordStrengthBar.classList.add("very-high-security-bar");
-          passwordStrengthText.textContent = "Nivel de seguridad: Muy Alto";
-          break;
-        default:
-          break;
-      }
-    }
-  };
+  // He decidido hacerlo así para mayor rendimiento, que re-renderice el componente completo*
 
   const validatePassword = (value) => {
     const strength = checkPasswordStrength(value);
@@ -217,7 +152,7 @@ const LoginForm = () => {
         <button
           type="submit"
           disabled={!formState.isDirty}
-          className="box-shadow"
+          className="box-shadow button-submit"
         >
           Login
         </button>

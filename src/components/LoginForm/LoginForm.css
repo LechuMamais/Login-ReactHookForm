@@ -145,6 +145,11 @@
 /* -------------------------- Button -------------------------- */
 
 
+button::before {
+    animation: rotate 5000ms linear infinite;
+    filter: blur(20px)
+}
+
 button {
     min-width: 120px;
     padding: var(--medium) var(--extra-large);
@@ -153,15 +158,26 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 180ms ease, background-color 0.3s;
+    backdrop-filter: blur(40px);
+    backface-visibility: hidden;
+    border: 2px solid var(--gris-oscuro) !important;
 }
 
 button:hover {
     background-color: var(--gris-negro);
 }
 
+button:active {
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+    transform: translateY(1px);
+    -webkit-box-shadow: 8px 6px 16px -13px rgba(0, 0, 0, 0.85);
+    -moz-box-shadow: 8px 6px 16px -13px rgba(0, 0, 0, 0.85);
+    box-shadow: 8px 6px 16px -13px rgba(0, 0, 0, 0.85);
+}
+
 button:disabled {
     background-color: var(--gris-claro);
-    cursor: not-allowed;
+    cursor:unset;
     color: var(--gris-medio-oscuro);
 }
