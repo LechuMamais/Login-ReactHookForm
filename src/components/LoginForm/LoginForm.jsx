@@ -14,6 +14,7 @@ const LoginForm = () => {
     },
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -22,6 +23,7 @@ const LoginForm = () => {
   const submit = (formData) => {
     if (validatePassword(formData.password)) {
       console.log(formData);
+      setLoading(true);
     }
   };
 
@@ -154,7 +156,9 @@ const LoginForm = () => {
           disabled={!formState.isDirty}
           className="box-shadow button-submit"
         >
-          Login
+          {!loading? 'Login':
+          <div className="submit-loading-animation"><span></span><span></span><span></span></div>
+          }
         </button>
       </form>
     </div>

@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #eeeeee4c;
+    background-color: var(--gris-medio-oscuro);
     border-radius: 1rem;
 }
 
@@ -54,7 +54,7 @@
 }
 
 
-/* Error Message */
+/* ------------------------ Error Message ---------------------- */
 .error-message {
     margin: var(--small) 0;
     font-size: 14px;
@@ -62,7 +62,7 @@
 }
 
 
-/* Show Password Toggle */
+/* -------------------- Show Password Toggle ------------------- */
 .password-input-container {
     position: relative;
 }
@@ -80,7 +80,7 @@
 }
 
 
-/* Password security level */
+/* ------------------ Password security level ------------------ */
 #password-input {
     transition: color 0.3s ease;
 }
@@ -102,7 +102,7 @@
 }
 
 
-/* Password Strenght Bar */
+/* ------------------- Password Strenght Bar ------------------- */
 .password-strength-bar {
     width: 100%;
     height: var(--small);
@@ -142,7 +142,7 @@
     background-color: var(--very-high-security-color);
 }
 
-/* -------------------------- Button -------------------------- */
+/* --------------------------- Button -------------------------- */
 
 
 button::before {
@@ -181,3 +181,32 @@ button:disabled {
     cursor:unset;
     color: var(--gris-medio-oscuro);
 }
+
+/* ----------------- Button - Loading Animation ---------------- */
+
+.submit-loading-animation span {
+    display: inline-block;
+    vertical-align: middle;
+    width: .6em;
+    height: .6em;
+    margin: .2em;
+    background: var(--very-high-security-color);
+    border-radius: 50%;
+    animation: loading 1s infinite alternate;
+}
+
+.submit-loading-animation span:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+  .submit-loading-animation span:nth-of-type(3) {
+    animation-delay: 0.4s;
+  }
+
+@keyframes loading {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
